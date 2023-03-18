@@ -1,0 +1,91 @@
+body {
+    margin: 0;
+}
+
+.con {
+    margin: auto;
+    width: 90%;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-template-rows: auto auto auto;
+    gap: 10px;
+    background-color: black;
+    margin-top: 40px;
+}
+
+.con div {
+    padding-top: 40px;
+    border: 2px solid;
+    width: auto;
+    height: 50px;
+    background-color: white;
+    text-align: center;
+}
+
+#box1,
+#box2,
+#box3 {
+    border-top: none;
+}
+
+#box3,
+#box6,
+#box9 {
+    border-right: none;
+}
+
+#box1,
+#box4,
+#box7 {
+    border-left: none;
+}
+
+#box7,
+#box8,
+#box9 {
+    border-bottom: none;
+}
+
+@media screen and (min-width:799px) {
+    .con {
+        /* margin-left: 20px; */
+        width: 60%;
+    }
+
+    .con div {
+        width: auto;
+        padding-top: 60px;
+        padding-bottom: 20px;
+    }
+    .player{
+        padding-top: 30px;
+     }
+}
+
+
+@media screen and (min-width:1420px) {
+.con {
+    width: 70%;
+}
+
+.con div {
+    width: auto;
+    padding-top: 70px;
+    padding-bottom: 40px;
+}
+.player{
+    padding-top: 30px;
+ }
+}
+.player{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding-top: 20px;
+}
+.scores{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: -10px;
+}
