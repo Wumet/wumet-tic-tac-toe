@@ -104,7 +104,7 @@ fieldset{
 } */
 @media screen and (min-width:799px){
     .w-form{
-        width: 60%;
+        width: 50%;
         margin: auto;
     }
 }
