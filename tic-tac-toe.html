@@ -13,40 +13,40 @@
 </head>
 
 <body>
-    <div class="row ">
+    <div class="row">
         <div class="col-md-6">
-            <section class="flex align mt4 ">
-                <div class="game  position-rel p-4 shadow1">
+            <section class="flex align  m-2">
+                <div class="game  position-rel p-4">
                     <div class="position-abs stroke stroke1 hidden"></div>
                     <div class="position-abs stroke stroke2 hidden"></div>
                     <div class="position-abs stroke stroke3 hidden"></div>
                     <div class="position-abs stroke stroke4 hidden"></div>
                     <div class="position-abs stroke stroke5 hidden"></div>
                     <div class="position-abs stroke stroke6 hidden"></div>
-                    <div class="position-abs stroke stroke7 hidden"></div>
-                    <div class="position-abs stroke stroke8 hidden"></div>
+                    <div class="position-abs stroke stroke7"></div>
+                    <div class="position-abs stroke stroke8"></div>
                     <div class="tictactoe-container flex flex-col">
                         <div class="ttt-row flex flex-row" id="tttrow1">
                             <div onclick="play(1)" class="ttt-box" id="ttt-box-1">
                                 <div class="flex align x-y-box" id="ttt-sym-1">
-
+                                    
                                 </div>
                             </div>
                             <div onclick="play(2)" class="ttt-box" id="ttt-box-2">
                                 <div class="flex align x-y-box" id="ttt-sym-2">
-
+                                    
                                 </div>
                             </div>
                             <div onclick="play(3)" class="ttt-box" id="ttt-box-3">
                                 <div class="flex align x-y-box" id="ttt-sym-3">
-
+                                    
                                 </div>
                             </div>
                         </div>
                         <div class="ttt-row flex flex-row" id="tttrow1">
                             <div onclick="play(4)" class="ttt-box" id="ttt-box-4">
                                 <div class="flex align x-y-box" id="ttt-sym-4">
-
+                                    
                                 </div>
                                 <!-- <div class="flex align x-y-box">
                                     <i class="fa-solid fa-xmark ttt-x"></i>
@@ -54,12 +54,12 @@
                             </div>
                             <div onclick="play(5)" class="ttt-box" id="ttt-box-5">
                                 <div class="flex ttt-y x-y-box align" id="ttt-sym-5">
-
+                                    
                                 </div>
                             </div>
                             <div onclick="play(6)" class="ttt-box" id="ttt-box-6">
                                 <div class="flex align x-y-box" id="ttt-sym-6">
-
+                                    
                                 </div>
                                 <!-- <div class="flex align x-y-box">
                                     <i class="fa-solid fa-xmark ttt-x"></i>
@@ -69,20 +69,20 @@
                         <div class="ttt-row flex flex-row" id="tttrow1">
                             <div onclick="play(7)" class="ttt-box" id="ttt-box-7">
                                 <div class="flex align x-y-box" id="ttt-sym-7">
-
+                                    
                                 </div>
                             </div>
                             <div onclick="play(8)" class="ttt-box" id="ttt-box-8">
                                 <div class="flex align x-y-box" id="ttt-sym-8">
-
+                                    
                                 </div>
                                 <!-- <div class="flex align x-y-box">
                                     <i class="fa-solid fa-xmark ttt-x"></i>
                                 </div> -->
                             </div>
-                            <div onclick="play(9)" class="ttt-box" id="ttt-box-9">
-                                <div class="flex align x-y-box" id="ttt-sym-9">
-
+                            <div class="ttt-box" id="ttt-box-9">
+                                <div onclick="play(9)" class="flex align x-y-box" id="ttt-sym-9">
+                                    
                                 </div>
                             </div>
                         </div>
@@ -93,13 +93,13 @@
         </div>
         <div class="col-md-6">
             <div class="flex align">
-                <div class="flex flex-col align width-1 p-3 p-top history mt4 shadow1">
-                    <div class="flex flex-row space-around white">
+                <div class="flex flex-col align width-1 p-3 p-top">
+                    <div class="flex flex-row space-around">
                         <div class="width-2 flex align p-2">Player X </div>
                         <div class="width-2 flex align p-2">Player O </div>
                         <div class="width-2 flex align p-2">Draw </div>
                     </div>
-                    <div class="flex flex-row space-around align white">
+                    <div class="flex flex-row space-around align">
                         <div class="width-2 flex align p-2">40</div>
                         <div class="width-2 flex align p-2">40</div>
                         <div class="width-2 flex align p-2">40</div>
@@ -120,31 +120,16 @@
         const box7 = document.getElementById("ttt-sym-7");
         const box8 = document.getElementById("ttt-sym-8");
         const box9 = document.getElementById("ttt-sym-9");
-
-        const boxes = [box1, box2, box3, box4, box5, box6, box7, box8, box9]
-        var X = '<i class="fa-solid fa-xmark ttt-x"></i>';
-        var O = '<i class="fa-regular fa-circle ttt-o"></i>';
-
-        const game = [
-            false,
-            false,
-            false,
-            false,
-            false,
-            false,
-            false,
-            false,
-            false
-        ]
-        let nextPlayer = X;
-        function play(n) {
-            if (game == true) {
-
-            }
-            boxes[n - 1].innerHTML = nextPlayer;
-            nextPlayer = nextPlayer == X ? O : X;
-
-        }
+        
+       const boxes = [box1,box2,box3,box3,box4,box5,box6,box7,box8,box9];
+       const X = '<i class="fa-solid fa-xmark ttt-x"></i>';
+       const O = '<i class="fa-regular fa-circle ttt-o></i>';
+        var nextPlayer = X;
+       function play(n){
+        boxes[n-1].innerText = X;
+        nextPlayer = nextPlayer == X ? O
+       }
+       
     </script>
 </body>
 

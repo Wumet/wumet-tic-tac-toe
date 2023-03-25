@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+     <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            clifford: '#da373d',
+          }
+        }
+      }
+    }
+  </script>
+  <style type="text/tailwindcss">
+    @layer utilities {
+      .content-auto {
+        content-visibility: auto;
+      }
+    }
+  </style>
+  
+
+    <style>
+      p::before{
+        content: 'Yeah! ';
+      }
+    </style>
+</head>
+<body>
+    <!-- <input type="text">
+    <p class="">hello there!</p> -->
+    <button id="btn" class="text-red">click to be greeted</button>
+    <h4 id="greeting"></h4>
+    <p id="self-called"></p>
+    <button>Click me</button>
+</body>
+<script>
+    $(document).ready(function () {
+      $("input:text").val("wumi")
+    });
+</script>
+<script>
+  greeting = document.getElementById("greeting");
+  document.addEventListener('click', function(){
+    let name = prompt("Pls enter your name: ");
+     if(name == null || name == ""){
+    greeting.innerText = "You cancelled the promt"
+     }
+     else{
+      greeting.innerText = "Hello! " + name + " Welcome to my website! How are you today?"
+     }
+  })
+</script>
+<script>
+  (function(){
+   let text = document.getElementById("self-called").innerText = "Self-called function"
+  })();
+</script>
+<script>
+    class Person {
+  name;
+	gender = "male";
+	color = "black";
+	ageInDays =  0;
+	hairColor = "brown";
+	constructor(_name,_gender,_color) {
+		this.name = _name;
+		this.color = _color;
+		this.gender = _gender;
+	}
+ 
+}
+</script>
+</html>

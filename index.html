@@ -10,57 +10,65 @@
 </head>
 
 <body>
-    <div class="container">
-        <div class="heading">
-            <h1>Welcome to Wumet's Tic-Tac-Toe</h1>
+    <div class="main-con">
+        <div class="container shadow1 bg2">
+            <div class="heading">
+                <h1>Welcome to Wumet's Tic-Tac-Toe</h1>
 
-            <div class="descr-con">
-                <p class="description w-line-height"> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque dolore ut
-                    voluptates laboriosam accusamus explicabo vitae, culpa, dignissimos amet aliquid sint, optio non
-                    dicta excepturi numquam aliquam facilis? Accusantium, ipsa?</p>
+                <div class="descr-con">
+                    <p class="description w-line-height"> Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                        Itaque dolore ut
+                        voluptates laboriosam accusamus explicabo vitae, culpa, dignissimos amet aliquid sint, optio non
+                        dicta excepturi numquam aliquam facilis? Accusantium, ipsa?</p>
+                </div>
             </div>
+            <div class="btn-con" id="getStarted"> <button class="bg1" onclick="getStarted()">Get started</button></div>
         </div>
-        <div class="btn-con" id="getStarted"> <button onclick="getStarted()">Get started</button></div>
+
+        <form action="" method="post" id="logInForm" class="hidden">
+
+            <fieldset class="shadow1 bg2">
+
+                <legend>LOG IN</legend>
+                <div>
+                    <p class="w-p-font">Enter details to log in or <a href="#" onclick="showRegForm()">click here</a> to
+                        register</p>
+                </div>
+                <div class="uname flex flex-col w-input-wrapper">
+                    <label for="name">Username</label>
+                    <input type="text" id="name" class="w-input" placeholder="enter username...">
+                </div>
+                <div class="flex flex-col w-input-wrapper">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" placeholder="enter password..." class="w-input">
+                </div>
+                <div class="w-input-wrapper w-btn-center">
+                    <button class="btn btn-primary">Log in</button>
+                </div>
+            </fieldset>
+        </form>
+        <form action="" method="post" id="regForm" class="hidden">
+
+            <fieldset class=" shadow1 bg2">
+                <legend>Register</legend>
+                <div>
+                    <p class="w-p-font">Already have an account? <a href="#" onclick="showLoginForm()"
+                            class="a-float">Click here</a> to Log in</p>
+                </div>
+                <div class="uname flex flex-col w-input-wrapper">
+                    <label for="name">Username</label>
+                    <input type="text" id="name" class="w-input" placeholder="enter username...">
+                </div>
+                <div class="flex flex-col w-input-wrapper">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" placeholder="enter password..." class="w-input">
+                </div>
+                <div class="w-input-wrapper w-btn-center">
+                    <button class="btn btn-primary">Register</button>
+                </div>
+            </fieldset>
+        </form>
     </div>
-
-    <form action="" method="post" id="logInForm" class="hidden">
-        <div>
-            <p class="w-p-font">Enter details to log in or <a href="#" onclick="showRegForm()">click here</a> to register</p>
-        </div>
-        <fieldset>
-            <legend>LOG IN</legend>
-            <div class="uname flex flex-col w-input-wrapper">
-                <label for="name">Username</label>
-                <input type="text" id="name" class="w-input" placeholder="enter username...">
-            </div>
-            <div class="flex flex-col w-input-wrapper">
-                <label for="password">Password</label>
-                <input type="password" id="password" placeholder="enter password..." class="w-input">
-            </div>
-            <div class="w-input-wrapper w-btn-center">
-                <button class="btn btn-primary">Log in</button>
-            </div>
-        </fieldset>
-    </form>
-    <form action="" method="post" id="regForm" class="hidden">
-        <div>
-            <p class="w-p-font">Already have an account?  <a href="#" onclick="showLoginForm()" class="a-float">Click here</a> to Log in</p>
-        </div>
-        <fieldset class="w-form">
-            <legend>Register</legend>
-            <div class="uname flex flex-col w-input-wrapper">
-                <label for="name">Username</label>
-                <input type="text" id="name" class="w-input" placeholder="enter username...">
-            </div>
-            <div class="flex flex-col w-input-wrapper">
-                <label for="password">Password</label>
-                <input type="password" id="password" placeholder="enter password..." class="w-input">
-            </div>
-            <div class="w-input-wrapper w-btn-center">
-                <button class="btn btn-primary">Register</button>
-            </div>
-        </fieldset>
-    </form>
 </body>
 <script>
     let logInForm = document.getElementById("logInForm");
@@ -68,23 +76,29 @@
     let getStartedBtn = document.getElementById("getStarted");
 
 
-    function showLoginForm(){
+    function showLoginForm() {
         logInForm.classList.remove("hidden")
         regForm.classList.add("hidden")
     }
 
-    
-    function getStarted(){
+
+    function getStarted() {
 
         getStartedBtn.classList.add("hidden")
         showLoginForm();
     }
-    
-    function showRegForm(){
+
+    function showRegForm() {
         // e.preventDefault();
         regForm.classList.remove("hidden");
         logInForm.classList.add("hidden")
 
     }
+    document.getElementById("logInForm").addEventListener("submit", logIn);
+    function logIn(e) {
+        e.preventDefault();
+        window.location.href = 'tic-tac.html'
+    }
 </script>
+
 </html>
