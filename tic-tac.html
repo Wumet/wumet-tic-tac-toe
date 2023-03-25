@@ -104,6 +104,9 @@
                         <div class="width-2 flex align p-2">40</div>
                         <div class="width-2 flex align p-2">40</div>
                     </div>
+                    <div class="w-input-wrapper w-btn-center">
+                        <button class="btn btn-wood" id="exitBtn"><i class="fa-sharp fa-regular fa-rectangle-xmark" style="color: red;"></i> Exit game</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -138,13 +141,15 @@
         ]
         let nextPlayer = X;
         function play(n) {
-            if (game == true) {
-
-            }
             boxes[n - 1].innerHTML = nextPlayer;
             nextPlayer = nextPlayer == X ? O : X;
 
         }
+        document.getElementById("exitBtn").addEventListener("click", exitGame);
+    function exitGame(e) {
+        e.preventDefault();
+        window.location.href = 'index.html'
+    }
     </script>
 </body>
 

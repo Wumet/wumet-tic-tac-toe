@@ -202,7 +202,7 @@ body {
 }
 
 .game {
-    border: 4px solid rgb(233, 225, 225);
+    border: 4px solid #b4855b;
     border-radius: 8px;
     /* background-color: #7f5744; */
     background-image: url(./br2.avif);
@@ -225,7 +225,18 @@ body {
     box-shadow: 2px 2px 4px black, 2px 2px 4px black;
 
 }
-
+.history{
+    border: 3px solid #b4855b;
+    background-image: url(./br2.avif);
+}
+.btn-wood{
+    background-image: url(./br2.avif);
+    color: white;
+    box-shadow: 2px 2px 2px black, 2px 2px 2px black;
+    border: 2px solid #b4855b;
+    padding: 6px 20px;
+    margin-top: 10px;
+}
 /* media queries */
 @media screen and (min-width:768px) {
     .col-md-6 {
@@ -233,7 +244,7 @@ body {
         flex: 0 0 auto;
     }
     .history{
-        border: 3px solid white;
+        border: 3px solid #b4855b;
         border-radius: 7px;
         width: 300px;
         height: 300px;
