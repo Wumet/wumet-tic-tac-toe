@@ -10,13 +10,18 @@ body{
      padding: 10px;
      margin: auto;
      border-radius: 10px;
+     background-image: url(./br2.avif);
 }
+
 /* background */
 .bg1{
     background-color: #38bb66;
 }
 .bg2{
     background-color:#7f5744;
+}
+.bg3{
+    background-image:  url(./br2.avif);
 }
 /* box-shadow */
 .shadow1{
@@ -32,7 +37,7 @@ body{
 }
 .btn-con button{
     padding: 10px 35px;
-    border: none;
+    /* border: none; */
     border-radius: 25px;
     color: white;
     font-size: 25px;
@@ -82,6 +87,12 @@ form{
     background-color: #007bff;
     color: white;
 }
+.btn-wood {
+    background-image: url(./br2.avif);
+    color: white;
+    box-shadow: 2px 2px 2px black, 2px 2px 2px black;
+    border: 2px solid #b4855b;
+}
 .btn-danger {
     background-color: crimson;
     color: white;
@@ -102,8 +113,8 @@ form{
 }
 a{
     text-decoration: none;
-    font-weight: 600;
-    color: black;
+    font-weight: 700;
+    color: #007bff;
     /* color: blue; */
 }
 
