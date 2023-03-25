@@ -17,34 +17,34 @@
         <div class="col-md-6">
             <section class="flex align mt4 ">
                 <div class="game  position-rel p-4 shadow1">
-                    <div class="position-abs stroke stroke1 hidden"></div>
-                    <div class="position-abs stroke stroke2 hidden"></div>
-                    <div class="position-abs stroke stroke3 hidden"></div>
-                    <div class="position-abs stroke stroke4 hidden"></div>
-                    <div class="position-abs stroke stroke5 hidden"></div>
-                    <div class="position-abs stroke stroke6 hidden"></div>
-                    <div class="position-abs stroke stroke7 hidden"></div>
-                    <div class="position-abs stroke stroke8 hidden"></div>
+                    <div class="position-abs stroke stroke1 hidden" id="stroke1"></div>
+                    <div class="position-abs stroke stroke2 hidden" id="stroke2"></div>
+                    <div class="position-abs stroke stroke3 hidden" id="stroke3"></div>
+                    <div class="position-abs stroke stroke5 hidden" id="stroke4"></div>
+                    <div class="position-abs stroke stroke4 hidden" id="stroke5"></div>
+                    <div class="position-abs stroke stroke6 hidden" id="stroke6"></div>
+                    <div class="position-abs stroke stroke8 hidden" id="stroke7"></div>
+                    <div class="position-abs stroke stroke7 hidden" id="stroke8"></div>
                     <div class="tictactoe-container flex flex-col">
                         <div class="ttt-row flex flex-row" id="tttrow1">
-                            <div onclick="play(1)" class="ttt-box" id="ttt-box-1">
+                            <div onclick="play(0)" class="ttt-box" id="ttt-box-1">
                                 <div class="flex align x-y-box" id="ttt-sym-1">
 
                                 </div>
                             </div>
-                            <div onclick="play(2)" class="ttt-box" id="ttt-box-2">
+                            <div onclick="play(1)" class="ttt-box" id="ttt-box-2">
                                 <div class="flex align x-y-box" id="ttt-sym-2">
 
                                 </div>
                             </div>
-                            <div onclick="play(3)" class="ttt-box" id="ttt-box-3">
+                            <div onclick="play(2)" class="ttt-box" id="ttt-box-3">
                                 <div class="flex align x-y-box" id="ttt-sym-3">
 
                                 </div>
                             </div>
                         </div>
                         <div class="ttt-row flex flex-row" id="tttrow1">
-                            <div onclick="play(4)" class="ttt-box" id="ttt-box-4">
+                            <div onclick="play(3)" class="ttt-box" id="ttt-box-4">
                                 <div class="flex align x-y-box" id="ttt-sym-4">
 
                                 </div>
@@ -52,12 +52,12 @@
                                     <i class="fa-solid fa-xmark ttt-x"></i>
                                 </div> -->
                             </div>
-                            <div onclick="play(5)" class="ttt-box" id="ttt-box-5">
+                            <div onclick="play(4)" class="ttt-box" id="ttt-box-5">
                                 <div class="flex ttt-y x-y-box align" id="ttt-sym-5">
 
                                 </div>
                             </div>
-                            <div onclick="play(6)" class="ttt-box" id="ttt-box-6">
+                            <div onclick="play(5)" class="ttt-box" id="ttt-box-6">
                                 <div class="flex align x-y-box" id="ttt-sym-6">
 
                                 </div>
@@ -67,12 +67,12 @@
                             </div>
                         </div>
                         <div class="ttt-row flex flex-row" id="tttrow1">
-                            <div onclick="play(7)" class="ttt-box" id="ttt-box-7">
+                            <div onclick="play(6)" class="ttt-box" id="ttt-box-7">
                                 <div class="flex align x-y-box" id="ttt-sym-7">
 
                                 </div>
                             </div>
-                            <div onclick="play(8)" class="ttt-box" id="ttt-box-8">
+                            <div onclick="play(7)" class="ttt-box" id="ttt-box-8">
                                 <div class="flex align x-y-box" id="ttt-sym-8">
 
                                 </div>
@@ -80,7 +80,7 @@
                                     <i class="fa-solid fa-xmark ttt-x"></i>
                                 </div> -->
                             </div>
-                            <div onclick="play(9)" class="ttt-box" id="ttt-box-9">
+                            <div onclick="play(8)" class="ttt-box" id="ttt-box-9">
                                 <div class="flex align x-y-box" id="ttt-sym-9">
 
                                 </div>
@@ -105,7 +105,8 @@
                         <div class="width-2 flex align p-2">40</div>
                     </div>
                     <div class="w-input-wrapper w-btn-center">
-                        <button class="btn btn-wood" id="exitBtn"><i class="fa-sharp fa-regular fa-rectangle-xmark" style="color: red;"></i> Exit game</button>
+                        <button class="btn btn-wood" id="exitBtn"><i class="fa-sharp fa-regular fa-rectangle-xmark"
+                                style="color: red;"></i> Exit game</button>
                     </div>
                 </div>
             </div>
@@ -129,27 +130,99 @@
         var O = '<i class="fa-regular fa-circle ttt-o"></i>';
 
         const game = [
-            false,
-            false,
-            false,
-            false,
-            false,
-            false,
-            false,
-            false,
-            false
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
         ]
-        let nextPlayer = X;
+        let currentPlayer = X;
         function play(n) {
-            boxes[n - 1].innerHTML = nextPlayer;
-            nextPlayer = nextPlayer == X ? O : X;
-
+            if (gameOver) {
+                alert("GAME OVER")
+            } else {
+                if (game[n] == null) {
+                    boxes[n].innerHTML = currentPlayer;
+                    if (currentPlayer == X) {
+                        game[n] = X;
+                        currentPlayer = O;
+                    }
+                    else {
+                        game[n] = O;
+                        currentPlayer = X;
+                    }
+                }
+                win = checkWinner();
+                console.log({win});
+                if (win.winner != null) {
+                    gameOver = true;
+                    if (win.winCondition == 0) {
+                        document.getElementById("stroke1").classList.remove("hidden")
+                    } else if (win.winCondition == 1) {
+                        document.getElementById("stroke2").classList.remove("hidden")
+                    } else if (win.winCondition == 2) {
+                        document.getElementById("stroke3").classList.remove("hidden")
+                    } else if (win.winCondition == 3) {
+                        document.getElementById("stroke4").classList.remove("hidden")
+                    } else if (win.winCondition == 4) {
+                        document.getElementById("stroke5").classList.remove("hidden")
+                    } else if (win.winCondition == 5) {
+                        document.getElementById("stroke6").classList.remove("hidden")
+                    } else if (win.winCondition == 6) {
+                        document.getElementById("stroke7").classList.remove("hidden")
+                    } else if (win.winCondition == 7) {
+                        document.getElementById("stroke8").classList.remove("hidden")
+                    }
+                }
+            }
         }
+        let gameOver = false;
+        function checkWinner() {
+            let winner = null;
+            let winCondition = null;
+            winningConditions.forEach(function (wc,i) {
+                if (game[wc[0]] == null) {
+                    return;
+                } else {
+                    let p = game[wc[0]];
+                    console.log('p !!! ' + p);
+                    if (game[wc[1]] != p) {
+                        return;
+                    } else {
+                        let p = game[wc[1]];
+                        if (game[wc[2]] != p) {
+                            return;
+                        } else {
+                            let p = game[wc[1]];
+                            winner = p;
+                            winCondition = i;
+                            return;
+                        }
+                    }
+                }
+            });
+            return {winner,winCondition};
+        }
+        const winningConditions = [
+            [0, 1, 2],
+            [3, 4, 5],
+            [6, 7, 8],
+            [0, 3, 6],
+            [1, 4, 7],
+            [2, 5, 8],
+            [2, 4, 6],
+            [0, 4, 8],
+        ]
+
         document.getElementById("exitBtn").addEventListener("click", exitGame);
-    function exitGame(e) {
-        e.preventDefault();
-        window.location.href = 'index.html'
-    }
+        function exitGame(e) {
+            e.preventDefault();
+            window.location.href = 'index.html'
+        }
     </script>
 </body>
 
