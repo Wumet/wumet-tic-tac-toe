@@ -37,7 +37,6 @@ body{
 }
 .btn-con button{
     padding: 10px 35px;
-    /* border: none; */
     border-radius: 25px;
     color: white;
     font-size: 25px;
@@ -128,6 +127,10 @@ legend{
 }
 input{
     border-radius: 5px;
+}
+.btn-wood:hover {
+    border: 3px solid #b4855b;
+    font-weight: 500;
 }
 @media screen and (min-width:799px){
     .container{
